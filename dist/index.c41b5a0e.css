@@ -195,4 +195,17 @@ a {
     height: 20%;
   }
 }
+
+.mobile {
+  display: none;
+}
+
+@media screen and (width <= 768px) {
+  .mobile {
+    background-color: #add8e6;
+    place-self: center;
+    padding: 5px;
+    display: flex;
+  }
+}
 /*# sourceMappingURL=index.c41b5a0e.css.map */

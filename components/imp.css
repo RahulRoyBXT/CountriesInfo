@@ -1,0 +1,14 @@
+.mobile {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .mobile {
+    display: block;
+    display: flex;
+    justify-self: center;
+    align-self: center;
+    background-color: lightblue;
+    padding: 5px;
+  } 
+}

@@ -35211,6 +35211,7 @@ parcelHelpers.export(exports, "default", ()=>SearchBar);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
+var _impCss = require("./imp.css");
 var _s = $RefreshSig$();
 function SearchBar({ onSearch }) {
     _s();
@@ -35225,35 +35226,52 @@ function SearchBar({ onSearch }) {
         if (e.target.value === "") onSearch("");
     };
     const handleKeyPress = (e)=>{
-        if (e.key === "Enter" && formData.country !== "") onSearch(formData.country);
+        console.log(e.key, e.code);
+        if ((e.key === "Enter" || e.code === "Enter") && formData.country !== "") onSearch(formData.country);
     };
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "search-container",
+    const handleSubmit = ()=>{
+        if (formData.country !== "") onSearch(formData.country);
+    };
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {
-                className: "fa-solid fa-magnifying-glass"
-            }, void 0, false, {
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "search-container",
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {
+                        className: "fa-solid fa-magnifying-glass"
+                    }, void 0, false, {
+                        fileName: "components/SearchBar.jsx",
+                        lineNumber: 27,
+                        columnNumber: 7
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                        type: "text",
+                        name: "country",
+                        placeholder: "Search for a country...",
+                        onChange: handleChange,
+                        onKeyDown: handleKeyPress
+                    }, void 0, false, {
+                        fileName: "components/SearchBar.jsx",
+                        lineNumber: 28,
+                        columnNumber: 7
+                    }, this)
+                ]
+            }, void 0, true, {
                 fileName: "components/SearchBar.jsx",
-                lineNumber: 21,
-                columnNumber: 7
+                lineNumber: 26,
+                columnNumber: 5
             }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                type: "text",
-                name: "country",
-                placeholder: "Search for a country...",
-                onChange: handleChange,
-                onKeyDown: handleKeyPress
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                className: "mobile",
+                onClick: handleSubmit,
+                children: "Search"
             }, void 0, false, {
                 fileName: "components/SearchBar.jsx",
-                lineNumber: 22,
-                columnNumber: 7
+                lineNumber: 36,
+                columnNumber: 5
             }, this)
         ]
-    }, void 0, true, {
-        fileName: "components/SearchBar.jsx",
-        lineNumber: 20,
-        columnNumber: 5
-    }, this);
+    }, void 0, true);
 }
 _s(SearchBar, "d1gSJ1e+BZvvXXw2FjmzCpZx2fc=");
 _c = SearchBar;
@@ -35265,7 +35283,7 @@ $RefreshReg$(_c, "SearchBar");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"hfvcB":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./imp.css":"dh374"}],"dh374":[function() {},{}],"hfvcB":[function(require,module,exports,__globalThis) {
 var $parcel$ReactRefreshHelpers$65f8 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;

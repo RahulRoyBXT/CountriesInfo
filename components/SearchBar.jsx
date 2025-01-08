@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import "./imp.css"
 export default function SearchBar({ onSearch }) {
   const [formData, setFormData] = useState({ country: "" });
 
@@ -11,12 +11,18 @@ export default function SearchBar({ onSearch }) {
   };
 
   const handleKeyPress = (e) => {
-    if (e.key === "Enter" && formData.country !== "") {
+    console.log(e.key, e.code);
+    if ((e.key === "Enter" || e.code === "Enter") && formData.country !== "") {
       onSearch(formData.country);
     }
   };
+  const handleSubmit = () => {
+    if (formData.country !== "") {
+      onSearch(formData.country);
+    }
+  }
 
-  return (
+  return (<>
     <div className="search-container">
       <i className="fa-solid fa-magnifying-glass"></i>
       <input
@@ -27,5 +33,7 @@ export default function SearchBar({ onSearch }) {
         onKeyDown={handleKeyPress}
       />
     </div>
+    <button className='mobile' onClick={handleSubmit}>Search</button>
+    </>
   );
 }
