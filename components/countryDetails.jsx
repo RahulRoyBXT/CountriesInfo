@@ -109,13 +109,13 @@ const CountryDetails = () => {
     setLoading(false);
     setCountryDetails({
       name1: newName,
-      name2: data.name.common,
-      borders: data.borders ? [...data.borders.map((border) => border)] : [],
+      name2: data.name?.common,
+      borders: data.borders ? [...data?.borders.map((border) => border)] : [],
       flag: data.flags?.svg,
-      languages: Object.values(data.languages).join(", "),
-      currencies: Object.values(data.currencies)
-        .map((currency) => currency.name)
-        .join(", "),
+      languages: data.languages ? Object.values(data.languages).join(", ") : "",
+      currencies: data.currencies ? Object.values(data?.currencies)
+        .map((currency) => currency?.name)
+        .join(", ") : "",
       region: data.region,
       population: data.population,
       alt: data.flags?.alt,

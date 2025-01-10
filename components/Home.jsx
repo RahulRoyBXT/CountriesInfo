@@ -1,14 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import CountriesList from './CountriesList'
 import SearchBar from './SearchBar'
 import SelectMenu from './SelectMenu'
 import { useEffect, useState } from 'react';
 import Fuse from "fuse.js";
+import { ThemeContext } from '../Context/ThemeContext';
 const Home = () => {
   const [done, setDone] = useState(false); 
     const [countriesData, setCountriesData] = useState([]);
     const [filteredCountries, setFilteredCountries] = useState(countriesData);
     const [region, setRegion] = useState('');
+    const [isDark] = useContext(ThemeContext);
     
     useEffect(() => {
       fetch("https://restcountries.com/v3.1/all")
@@ -28,9 +30,10 @@ const Home = () => {
       } else {
         // Fuse.js configuration
         const options = {
-          keys: ["name.common", "altSpellings"],
+          keys: ["name.common", "altSpellings", "name.official"],
           threshold: 0.1,
           minMatchCharLength: 2,
+          includeScore: true,
         };
     
         const fuse = new Fuse(filteredCountries, options);
@@ -53,8 +56,8 @@ const Home = () => {
     
     
   return (
-      <main>
-        <div className="search-filter-container">
+      <main className={isDark? "dark": ""}>
+        <div className='search-filter-container'>
           <SearchBar onSearch={handleSearch} />
           <SelectMenu region={region} onFilter={handleFilter}/>
         </div>

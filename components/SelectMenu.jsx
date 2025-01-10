@@ -1,8 +1,6 @@
 import React, { useCallback, useEffect } from 'react'
 
 export default function SearchBar({onFilter, region}) {
-
-  // const searchRegion= useMemo()
   const handleChange = useCallback((e) => {
 
     console.log(e.target.value);

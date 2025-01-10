@@ -3,6 +3,14 @@ node_modules/
 npm-debug.log
 yarn-error.log
 
+
+# Rand.js
+rand.js
+
+# folder
+hooks/
+utils/
+
 # Logs
 logs/
 *.log
