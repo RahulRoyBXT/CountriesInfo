@@ -110,13 +110,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--elements-color);
+  background-color: var(--light-element);
   border-radius: 8px;
   padding: 1rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
-.coat-of-arms-container{
-  display: none;
+.country-details-page.dark .coat-of-arms-container {
+  background-color: var(--dark-element);
 }
 
 .coat-of-arms {
