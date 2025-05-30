@@ -1,0 +1,133 @@
+/* Home.css - Styling for the home page */
+.home-container {
+  padding: 2rem 5%;
+  min-height: 100%;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  background-color: var(--light-bg);
+  color: var(--light-text);
+}
+
+.home-container.dark {
+  background-color: var(--dark-bg);
+  color: var(--dark-text);
+}
+
+.filter-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 0 1rem;
+}
+
+.filter-section > div:first-child {
+  flex: 1;
+  max-width: 480px;
+  min-width: 280px;
+}
+
+@media (max-width: 1400px) {
+  .home-container {
+    padding: 2rem 4%;
+  }
+}
+
+@media (max-width: 1100px) {
+  .home-container {
+    padding: 1.5rem 3%;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-container {
+    padding: 1.25rem 2%;
+  }
+
+  .filter-section {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .filter-section > div:first-child {
+    max-width: 100%;
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+
+  .error-message {
+    margin: 2rem 1rem;
+    padding: 2rem 1rem;
+  }
+
+  .error-message h2 {
+    font-size: 1.25rem;
+  }
+
+  .error-message button {
+    margin-top: 1rem;
+    padding: 0.5rem 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-container {
+    padding: 1rem;
+  }
+  
+  .error-message {
+    margin: 1rem;
+    padding: 1.5rem 1rem;
+  }
+}
+
+.loading-message,
+.error-message {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.2rem;
+  color: var(--light-text);
+  transition: color 0.3s ease;
+}
+
+.home-container.dark .loading-message,
+.home-container.dark .error-message {
+  color: var(--dark-text);
+}
+
+.error-message button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.error-message button:hover {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+}
+
+@media screen and (max-width: 768px) {
+  .home-container {
+    padding: 1.5rem 5%;
+  }
+  
+  .filter-section {
+    flex-direction: column;
+    margin-bottom: 2rem;
+  }
+  
+  .filter-section > div:first-child {
+    max-width: 100%;
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+}

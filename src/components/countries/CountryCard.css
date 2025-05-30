@@ -1,0 +1,255 @@
+/* CountryCard custom animations and effects */
+
+.country-card-container {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.country-card-container.dark {
+  background-color: #2b3945;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  color: #ffffff;
+}
+
+.country-card {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: #111517;
+  height: 100%;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+.country-card-container.dark .country-card {
+  color: #ffffff;
+}
+
+.flag-container {
+  position: relative;
+  height: 180px;
+  background-color: var(--light-bg);
+}
+
+.country-card-container.dark .flag-container {
+
+  background-color: var(--dark-bg);
+}
+
+.flag-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease, opacity 0.3s ease;
+}
+
+.image-placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--dark-element);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.country-card-container.dark image-placeholder {
+  background-color: var(--dark-element);
+}
+
+
+.loading-pulse {
+  width: 50%;
+  height: 50%;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+.dark .loading-pulse {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+@keyframes pulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 0.3; }
+  100% { opacity: 0.6; }
+}
+
+/* Gradient overlay on image hover */
+.flag-container:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 70%, rgba(0,0,0,0.2) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.country-card:hover .flag-container:after {
+  opacity: 1;
+}
+
+/* Underline effect for title */
+.card-title:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 2px;
+  background-color: #3498db;
+  transition: width 0.3s ease;
+}
+
+.country-card:hover .card-title:after {
+  width: 70px;
+}
+
+
+
+.card-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.card-details p {
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.card-details b {
+  font-weight: 600;
+}
+
+.card-value {
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+/* Pulsing effect for data values on hover */
+.country-card:hover .card-value {
+  color: #3498db;
+  opacity: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1400px) {
+  .country-card-container {
+    max-width: 320px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 1100px) {
+  .country-card-container {
+    max-width: 300px;
+  }
+
+  .flag-container {
+    height: 160px;
+  }
+
+  .card-title {
+    font-size: 1.1rem;
+  }
+
+  .card-details {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .country-card-container {
+    max-width: 280px;
+  }
+
+  .flag-container {
+    height: 150px;
+  }
+
+  .card-text {
+    padding: 1.25rem;
+  }
+
+  .card-title {
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .card-details p {
+    margin-bottom: 0.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .country-card-container {
+    max-width: 100%;
+    max-height: 25rem;
+  }
+
+  .flag-container {
+    max-height: 12rem;
+    max-width: 100%;
+
+  }
+
+  .card-text {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .card-title {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .card-details {
+    font-size: 1rem;
+  }
+}
+
+/* Pulsing effect for data values on hover */
+.country-card:hover .card-value {
+  color: #3498db;
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+
+/* Add a subtle shine effect that moves across the card */
+@keyframes shine {
+  0% {
+    background-position: -100% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.country-card:hover:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    #ffffff00 0%,
+    #ffffff33 50%,
+    #ffffff00 100%
+  );
+  background-size: 200% 100%;
+  animation: shine 1.5s infinite linear;
+  pointer-events: none;
+  z-index: 1;
+}

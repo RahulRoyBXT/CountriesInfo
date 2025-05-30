@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#2b3945" />
+    <meta
+      name="description"
+      content="Explore countries around the world with detailed information and beautiful interface"
+    />
+    <title> Where in the world? </title>
+    <link rel="icon" href="logo.ico" type="image/x-icon" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="apple-touch-icon" href="/globe192.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito:300,regular,500,600,700,800"
+      rel="stylesheet"
+    />
+    <style>
+      #initial-loader {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        width: 100vw;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: var(--background);
+        z-index: 9999;
+        transition: opacity 0.3s ease-out;
+      }
+      #initial-loader.fade-out {
+        opacity: 0;
+      }
+      #initial-loader .spinner {
+        width: 50px;
+        height: 50px;
+        border: 5px solid #f3f3f3;
+        border-top: 5px solid #2b3945;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      [data-theme='dark'] #initial-loader {
+        background-color: #202c37;
+      }
+      [data-theme='dark'] #initial-loader .spinner {
+        border-color: #2b3945;
+        border-top-color: #ffffff;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="initial-loader">
+      <div class="spinner"></div>
+    </div>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+    <script>
+      // Hide loader once app is loaded
+      window.addEventListener('load', () => {
+        const loader = document.getElementById('initial-loader');
+        loader.classList.add('fade-out');
+        setTimeout(() => {
+          loader.style.display = 'none';
+        }, 300);
+      });
+
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker
+            .register("/serviceWorker.js")
+            .then((registration) => {
+              console.log(
+                "ServiceWorker registration successful with scope: ",
+                registration.scope
+              );
+            })
+            .catch((err) => {
+              console.log("ServiceWorker registration failed: ", err);
+            });
+        });
+      }
+    </script>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+  </body>
+</html>

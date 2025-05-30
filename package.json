@@ -1,0 +1,29 @@
+{
+  "name": "country-parcel-vite",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.2.1",
+    "vite": "^5.0.0"
+  },
+  "dependencies": {
+    "country-parcel-vite": "file:",
+    "framer-motion": "^10.16.4",
+    "fuse.js": "^7.0.0",
+    "gsap": "^3.12.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^5.5.0",
+    "react-router-dom": "^6.10.0",
+    "zustand": "^5.0.5"
+  }
+}

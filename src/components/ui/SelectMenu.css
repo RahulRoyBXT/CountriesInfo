@@ -1,0 +1,109 @@
+/* SelectMenu.css - Styling for the region filter dropdown */
+.select-container {
+  position: relative;
+  width: 200px;
+  cursor: pointer;
+  background-color: var(--light-element);
+  border-radius: 5px;
+  box-shadow: var(--box-shadow-light);
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.select-container.dark {
+  background-color: var(--dark-element);
+  box-shadow: var(--box-shadow-dark);
+}
+
+.select-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  font-weight: 600;
+  color: var(--light-text);
+  transition: all 0.3s ease;
+}
+
+.select-container.dark .select-header {
+  color: var(--dark-text);
+}
+
+.select-header:hover {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+.select-container.dark .select-header:hover {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+.options-list {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  width: 100%;
+  background-color: var(--light-element);
+  border-radius: 5px;
+  box-shadow: var(--box-shadow-light);
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  z-index: 20;
+}
+
+.select-container.dark .options-list {
+  background-color: var(--dark-element);
+  box-shadow: var(--box-shadow-dark);
+}
+
+.options-list li {
+  padding: 0.75rem 1.5rem;
+  color: var(--light-text);
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+}
+
+.select-container.dark .options-list li {
+  color: var(--dark-text);
+}
+
+.options-list li:hover,
+.options-list li:focus {
+  background-color: rgba(0, 0, 0, 0.05);
+  outline: none;
+}
+
+.select-container.dark .options-list li:hover,
+.select-container.dark .options-list li:focus {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.options-list li[aria-selected="true"] {
+  color: var(--accent-color);
+  font-weight: 600;
+}
+
+.select-container i {
+  color: var(--light-text);
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.select-container.dark i {
+  color: var(--dark-text);
+}
+
+.select-container:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.select-container.dark:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+@media screen and (max-width: 768px) {
+  .select-container {
+    width: 100%;
+    margin-top: 1rem;
+  }
+}

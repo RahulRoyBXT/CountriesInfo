@@ -1,0 +1,154 @@
+/* Countries List Styles */
+.countries-container {
+  min-height: 60vh;
+  padding-bottom: 3rem;
+  transition: background-color 0.3s ease;
+}
+
+.countries-container.dark {
+  color: var(--dark-text);
+}
+
+.countries-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 4rem;
+}
+
+.no-results {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 3rem;
+  background-color: var(--light-element);
+  border-radius: 8px;
+  box-shadow: var(--box-shadow-light);
+  margin: 2rem auto;
+  max-width: 500px;
+}
+
+.countries-container.dark .no-results {
+  background-color: var(--dark-element);
+  box-shadow: var(--box-shadow-dark);
+}
+
+.no-results h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.no-results p {
+  color: var(--light-input);
+  font-size: 1rem;
+}
+
+.countries-container.dark .no-results p {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+@media (max-width: 1400px) {
+  .countries-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 3rem;
+    padding: 0 2rem;
+  }
+}
+
+@media (max-width: 1100px) {
+  .countries-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 2.5rem;
+    padding: 0 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .countries-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 2rem;
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .countries-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 0 1rem;
+  }
+
+  .no-results {
+    margin: 1rem;
+    padding: 2rem 1rem;
+  }
+
+  .no-results h2 {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .countries-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .countries-grid {
+    /* grid-template-columns: 1fr; */
+    gap: 2.5rem;
+  }
+}
+
+/* Pagination Styles */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 3rem;
+  padding: 1rem;
+}
+
+.pagination button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--light-element);
+  color: var(--light-text);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: var(--box-shadow-light);
+}
+
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pagination button.active {
+  background-color: #3498db;
+  color: white;
+}
+
+.countries-container.dark .pagination button {
+  background-color: var(--dark-element);
+  color: var(--dark-text);
+  box-shadow: var(--box-shadow-dark);
+}
+
+.countries-container.dark .pagination button.active {
+  background-color: #3498db;
+  color: white;
+}
+
+@media (max-width: 480px) {
+  .pagination {
+    gap: 0.5rem;
+  }
+  
+  .pagination button {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
+}

@@ -1,0 +1,80 @@
+:root {
+  /* Colors - Light Theme */
+  --light-bg: #f7f7f9;
+  --light-element: #ffffff;
+  --light-text: #111517;
+  --light-input: #858585;
+  
+  /* Colors - Dark Theme */
+  --dark-bg: #202c37;
+  --dark-element: #2b3945;
+  --dark-text: #ffffff;
+  
+  /* Effects */
+  --box-shadow-light: 0 0 10px rgba(0, 0, 0, 0.1);
+  --box-shadow-dark: 0 0 10px rgba(0, 0, 0, 0.3);
+  --accent-color: #3498db;
+
+  /* Typography */
+  font-family: 'Nunito Sans', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: var(--light-bg);
+  color: var(--light-text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark {
+  background-color: var(--dark-bg);
+  color: var(--dark-text);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--light-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #666;
+}
+
+body.dark ::-webkit-scrollbar-track {
+  background: var(--dark-bg);
+}
+
+body.dark ::-webkit-scrollbar-thumb {
+  background: #555;
+}
+
+body.dark ::-webkit-scrollbar-thumb:hover {
+  background: #777;
+}

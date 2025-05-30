@@ -1,0 +1,78 @@
+/* Header Styles */
+.header-container {
+  background-color: var(--light-element);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 1.2rem 5%;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: all 0.3s ease;
+}
+
+.header-container.dark {
+  background-color: var(--dark-element);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+.title a {
+  text-decoration: none;
+  color: var(--light-text);
+  transition: color 0.3s ease;
+}
+
+.header-container.dark .title a {
+  color: var(--dark-text);
+}
+
+
+.theme-changer {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  user-select: none;
+  color: var(--light-text);
+}
+
+.header-container.dark .theme-changer {
+  color: var(--dark-text);
+}
+
+.theme-changer:hover {
+  transform: scale(1.05);
+}
+
+.theme-changer i {
+  font-size: 1rem;
+  margin-right: 0.5rem;
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.1rem;
+  }
+  
+  .theme-changer {
+    font-size: 0.8rem;
+  }
+  
+  .header-content {
+    padding: 0.5rem 0;
+  }
+}

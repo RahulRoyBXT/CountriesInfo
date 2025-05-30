@@ -1,0 +1,199 @@
+General Styles with Dark Mode Support
+:root {
+  --light-bg: #f7f7f9;
+  --light-element: #ffffff;
+  --light-text: #111517;
+  --light-input: #858585;
+  --dark-bg: #202c37;
+  --dark-element: #2b3945;
+  --dark-text: #ffffff;
+  --box-shadow-light: 0 0 10px rgba(0, 0, 0, 0.1);
+  --box-shadow-dark: 0 0 10px rgba(0, 0, 0, 0.3);
+  --accent-color: #3498db;
+}
+
+body {
+  margin: 0;
+  font-family: 'Nunito Sans', sans-serif;
+  background-color: var(--light-bg);
+  color: var(--light-text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark {
+  background-color: var(--dark-bg);
+  color: var(--dark-text);
+}
+
+/* Search Component Styles */
+.search-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  background-color: var(--light-element);
+  box-shadow: var(--box-shadow-light);
+  border-radius: 5px;
+  padding: 0 1.5rem;
+  width: 100%;
+  max-width: 480px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-wrapper.dark .search-container {
+  background-color: var(--dark-element);
+  box-shadow: var(--box-shadow-dark);
+}
+
+.search-container i {
+  color: var(--light-input);
+  margin-right: 1rem;
+  transition: color 0.3s ease;
+}
+
+.search-wrapper.dark .search-container i {
+  color: var(--dark-text);
+}
+
+.search-container input {
+  border: none;
+  outline: none;
+  padding: 1rem 0;
+  width: 100%;
+  background-color: transparent;
+  color: var(--light-text);
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.search-container input::placeholder {
+  color: var(--light-input);
+  transition: color 0.3s ease;
+}
+
+.search-container input.dark-input {
+  color: var(--dark-text);
+}
+
+.search-container input.dark-input::placeholder {
+  color: var(--dark-text);
+  opacity: 0.7;
+}
+
+.mobile-search-btn {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .mobile-search-btn {
+    display: block;
+    background-color: var(--light-element);
+    color: var(--light-text);
+    border: none;
+    border-radius: 5px;
+    padding: 0.6rem 1.2rem;
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: var(--box-shadow-light);
+    transition: all 0.3s ease;
+  }
+    .search-wrapper.dark .mobile-search-btn {
+    background-color: var(--dark-element);
+    color: var(--dark-text);
+    box-shadow: var(--box-shadow-dark);
+  }
+  
+  .search-container {
+    max-width: 100%;
+  }
+}
+
+/* Select Menu Styles */
+.select-container {
+  position: relative;
+  background-color: var(--light-element);
+  box-shadow: var(--box-shadow-light);
+  border-radius: 5px;
+  width: 200px;
+  transition: all 0.3s ease;
+}
+
+.select-container.dark {
+  background-color: var(--dark-element);
+  box-shadow: var(--box-shadow-dark);
+}
+
+.select-container select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  background-color: transparent;
+  color: var(--light-text);
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.select-container select.dark-select {
+  color: var(--dark-text);
+}
+
+.select-container i {
+  position: absolute;
+  right: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--light-text);
+  pointer-events: none;
+  transition: color 0.3s ease;
+}
+
+.select-container.dark i {
+  color: var(--dark-text);
+}
+
+/* Home Page Styles */
+.home-container {
+  min-height: 100vh;
+  padding: 2rem 5%;
+  background-color: var(--light-bg);
+  color: var(--light-text);
+  transition: all 0.3s ease;
+}
+
+.home-container.dark {
+  background-color: var(--dark-bg);
+  color: var(--dark-text);
+}
+
+.filter-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+@media screen and (max-width: 768px) {
+  .filter-section {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .select-container {
+    align-self: flex-start;
+  }
+}

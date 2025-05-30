@@ -1,0 +1,20 @@
+{
+  "name": "Countries Explorer",
+  "short_name": "Countries",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2b3945",
+  "icons": [
+    {
+      "src": "/globe192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/globe512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
