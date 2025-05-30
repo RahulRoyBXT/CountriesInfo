@@ -26,12 +26,33 @@ const CountriesList = () => {
 
   // Calculate total pages
   const totalPages = Math.ceil(filteredCountries.length / countriesPerPage);
+  // Generate page numbers with ellipsis for better mobile display
+  const getPageNumbers = () => {
+    const delta = window.innerWidth < 768 ? 1 : 2; // Show fewer numbers on mobile
+    const range = [];
+    const rangeWithDots = [];
+    let l;
 
-  // Generate page numbers
-  const pageNumbers = [];
-  for (let i = 1; i <= totalPages; i++) {
-    pageNumbers.push(i);
-  }
+    for (let i = 1; i <= totalPages; i++) {
+      if (i === 1 || i === totalPages || (i >= currentPage - delta && i <= currentPage + delta)) {
+        range.push(i);
+      }
+    }
+
+    range.forEach(i => {
+      if (l) {
+        if (i - l === 2) {
+          rangeWithDots.push(l + 1);
+        } else if (i - l !== 1) {
+          rangeWithDots.push('...');
+        }
+      }
+      rangeWithDots.push(i);
+      l = i;
+    });
+
+    return rangeWithDots;
+  };
 
   return (
     <div className={`countries-container ${isDark ? "dark" : ""}`}>
@@ -100,16 +121,18 @@ const CountriesList = () => {
                   disabled={currentPage === 1}
                 >
                   Previous
-                </button>
-
-                {pageNumbers.map((number) => (
-                  <button
-                    key={number}
-                    onClick={() => paginate(number)}
-                    className={currentPage === number ? "active" : ""}
-                  >
-                    {number}
-                  </button>
+                </button>                {getPageNumbers().map((number, index) => (
+                  number === '...' ? (
+                    <span key={`dots-${index}`} className="pagination-dots">...</span>
+                  ) : (
+                    <button
+                      key={number}
+                      onClick={() => paginate(number)}
+                      className={currentPage === number ? "active" : ""}
+                    >
+                      {number}
+                    </button>
+                  )
                 ))}
 
                 <button
